@@ -7,13 +7,16 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name= "estudiante_prueba")
+@Table(name= "estudiante")
 @Data
-public class PruebaEstudiante {
+public class Estudiante {
     @Id
     private Integer eid;
     @Column(name = "nombre")
     private String nombre;
+    @Column(name = "apellido")
+    private String apellido;
+    @Column(name = "fec")
     @Column(name = "especialidad")
     private String especialidad;
     @Column(name = "grado")

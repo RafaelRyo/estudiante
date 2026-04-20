@@ -1,10 +1,8 @@
 package com.estudiantes.gestion_estudiantes.controller;
 
-import ch.qos.logback.core.encoder.EchoEncoder;
-import com.estudiantes.gestion_estudiantes.models.PruebaEstudiante;
+import com.estudiantes.gestion_estudiantes.models.Student;
 import com.estudiantes.gestion_estudiantes.service.IPruebaEstudianteService;
 import com.estudiantes.gestion_estudiantes.util.MessageUtil;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,19 +18,19 @@ public class PruebaEstudianteController {
     private IPruebaEstudianteService iPruebaEstudianteService;
 
     @GetMapping
-    public List<PruebaEstudiante> obtenerPruebaEstudiantes(){
-        return iPruebaEstudianteService.obtenerPruebaEstudiantes();
+    public List<Student> obtenerPruebaEstudiantes(){
+        return iPruebaEstudianteService.searchStudents();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PruebaEstudiante> obtenerEstudiantePorId(@PathVariable Integer id){
-        Optional<PruebaEstudiante> estudiante = iPruebaEstudianteService.obtenerEstudiantePorId(id);
+    public ResponseEntity<Student> obtenerEstudiantePorId(@PathVariable Integer id){
+        Optional<Student> estudiante = iPruebaEstudianteService.obtenerEstudiantePorId(id);
         return estudiante.map(ResponseEntity::ok).orElseGet(()-> ResponseEntity.notFound().build());
     }
 
     @PostMapping("/registrar")
-    public ResponseEntity<?> guardarPruebaEstudiante(@RequestBody PruebaEstudiante pruebaEstudiante){
-        PruebaEstudiante savedEstudiante = iPruebaEstudianteService.guardarPruebaEstudiante(pruebaEstudiante);
+    public ResponseEntity<?> guardarPruebaEstudiante(@RequestBody Student pruebaEstudiante){
+        Student savedEstudiante = iPruebaEstudianteService.guardarPruebaEstudiante(pruebaEstudiante);
         if (savedEstudiante != null){
             return  ResponseEntity.ok().body(MessageUtil.ESTUDIANTE_INGRESADO_EXITOSAMENTE);
         }else {
@@ -42,8 +40,8 @@ public class PruebaEstudianteController {
 
     @PutMapping("/actualizar/{id}")
     public ResponseEntity<?> actualizarPruebaEstudiante(
-            @PathVariable Integer id, @RequestBody PruebaEstudiante pruebaEstudiante){
-        PruebaEstudiante updateEstudiante = iPruebaEstudianteService.actualizarPruebaEstudiante(id, pruebaEstudiante);
+            @PathVariable Integer id, @RequestBody Student pruebaEstudiante){
+        Student updateEstudiante = iPruebaEstudianteService.actualizarPruebaEstudiante(id, pruebaEstudiante);
         if(updateEstudiante != null){
             return ResponseEntity.ok().body(MessageUtil.ESTUDIANTE_ACTUALIZADO_EXITOSAMENTE);
         }
