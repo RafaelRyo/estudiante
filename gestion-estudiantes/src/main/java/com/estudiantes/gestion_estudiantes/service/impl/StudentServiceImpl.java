@@ -1,8 +1,8 @@
 package com.estudiantes.gestion_estudiantes.service.impl;
 
 import com.estudiantes.gestion_estudiantes.models.Student;
-import com.estudiantes.gestion_estudiantes.repository.PruebaEstudianteRepository;
-import com.estudiantes.gestion_estudiantes.service.IPruebaEstudianteService;
+import com.estudiantes.gestion_estudiantes.repository.StudentRepository;
+import com.estudiantes.gestion_estudiantes.service.IStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +10,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PruebaEstudianteServiceImpl implements IPruebaEstudianteService {
+public class StudentServiceImpl implements IStudentService {
 
     @Autowired
-    private PruebaEstudianteRepository pruebaEstudianteRepository;
+    private StudentRepository pruebaEstudianteRepository;
 
     @Override
     public List<Student> searchStudents() {

@@ -1,7 +1,7 @@
 package com.estudiantes.gestion_estudiantes.controller;
 
 import com.estudiantes.gestion_estudiantes.models.Student;
-import com.estudiantes.gestion_estudiantes.service.IPruebaEstudianteService;
+import com.estudiantes.gestion_estudiantes.service.IStudentService;
 import com.estudiantes.gestion_estudiantes.util.MessageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,10 +12,10 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/prueba/estudiante")
-public class PruebaEstudianteController {
+@RequestMapping("/api/estudiante")
+public class StudentController {
     @Autowired
-    private IPruebaEstudianteService iPruebaEstudianteService;
+    private IStudentService iPruebaEstudianteService;
 
     @GetMapping
     public List<Student> obtenerPruebaEstudiantes(){

@@ -6,19 +6,20 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
+import java.time.OffsetDateTime;
+
 @Entity
-@Table(name= "estudiante")
+@Table(name= "student")
 @Data
-public class Estudiante {
+public class Student {
     @Id
     private Integer eid;
-    @Column(name = "nombre")
-    private String nombre;
-    @Column(name = "apellido")
-    private String apellido;
-    @Column(name = "fec")
-    @Column(name = "especialidad")
-    private String especialidad;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "lastNames")
+    private String lastNames;
+    @Column(name = "dateBirth")
+    private OffsetDateTime dateBirth;
     @Column(name = "grado")
     private String grado;
 }

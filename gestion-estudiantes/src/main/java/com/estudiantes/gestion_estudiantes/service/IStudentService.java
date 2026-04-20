@@ -5,7 +5,7 @@ import com.estudiantes.gestion_estudiantes.models.Student;
 import java.util.List;
 import java.util.Optional;
 
-public interface IPruebaEstudianteService {
+public interface IStudentService {
     List<Student> searchStudents();
     Optional<Student> obtenerEstudiantePorId(Integer id);
     Student guardarPruebaEstudiante(Student pruebaEstudiante);
