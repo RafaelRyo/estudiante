@@ -1,0 +1,39 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+    commands:
+      - echo "Installing dependencies and setting permissions..."
+      - chmod +x gradlew
+
+  pre_build:
+    commands:
+      - echo "Verifying Gradle version..."
+      - ./gradlew --version
+      - echo "Running tests..."
+      - ./gradlew clean test
+
+  build:
+    commands:
+      - echo "Building JAR artifact..."
+      - ./gradlew bootJar
+      - echo "Build completed on $(date)"
+
+  post_build:
+    commands:
+      - echo "Finalizing build process..."
+      - ls -la build/libs/
+
+artifacts:
+  files:
+    - build/libs/*.jar
+  name: BuildArtifact
+  discard-paths: yes
+
+cache:
+  paths:
+    - '/root/.gradle/**/*'
+    - 'build/**/*'
+
