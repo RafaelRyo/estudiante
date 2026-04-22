@@ -1,10 +1,11 @@
 package com.estudiantes.gestion_estudiantes.controller;
 
 import com.estudiantes.gestion_estudiantes.models.Student;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+@Slf4j
 @RestController
 @RequestMapping("/api/estudiante")
 public class StudentController {
@@ -22,12 +23,15 @@ public class StudentController {
 
     @PostMapping("/registrar")
     public ResponseEntity<?> guardarPruebaEstudiante(@RequestBody Student pruebaEstudiante) {
+        log.info("Entro al endpoint");
         String error = validarCamposObligatorios(pruebaEstudiante);
         if (error != null) {
+            log.warn("Error en la validacion de campos: {}", error);
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
         }
 
         // Modo prueba: solo confirmamos que el micro recibio los datos.
+        log.info("Proceso exitoso - datos recibidos correctamente");
         return ResponseEntity.ok("Micro recibio los datos correctamente");
     }
 
