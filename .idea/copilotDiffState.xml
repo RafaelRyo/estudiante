@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/gestion-estudiantes/Procfile">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/gestion-estudiantes/Procfile" />
+              <option name="updatedContent" value="web: java -jar gestion-estudiantes-0.0.1-SNAPSHOT.jar&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/gestion-estudiantes/buildspec.yml">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/gestion-estudiantes/buildspec.yml" />
+              <option name="originalContent" value="version: 0.2&#10;&#10;phases:&#10;  install:&#10;    runtime-versions:&#10;      java: corretto17&#10;    commands:&#10;      - echo &quot;Preparing Gradle wrapper...&quot;&#10;      - chmod +x gradlew&#10;&#10;  build:&#10;    commands:&#10;      - echo &quot;Building executable JAR...&quot;&#10;      - ./gradlew clean bootJar --no-daemon&#10;      - echo &quot;Listing generated artifacts...&quot;&#10;      - ls -la build/libs/&#10;&#10;artifacts:&#10;  files:&#10;    - build/libs/*.jar&#10;  discard-paths: yes&#10;&#10;cache:&#10;  paths:&#10;    - '/root/.gradle/**/*'&#10;" />
+              <option name="updatedContent" value="version: 0.2&#10;&#10;phases:&#10;  install:&#10;    runtime-versions:&#10;      java: corretto17&#10;    commands:&#10;      - echo &quot;Preparing Gradle wrapper...&quot;&#10;      - chmod +x gradlew&#10;&#10;  build:&#10;    commands:&#10;      - echo &quot;Building executable JAR...&quot;&#10;      - ./gradlew clean bootJar --no-daemon&#10;      - echo &quot;Listing generated artifacts...&quot;&#10;      - ls -la build/libs/&#10;      - echo &quot;Preparing artifacts for Elastic Beanstalk...&quot;&#10;      - mkdir -p output&#10;      - cp build/libs/*.jar output/&#10;      - cp Procfile output/&#10;      - cp -r .ebextensions output/&#10;&#10;artifacts:&#10;  files:&#10;    - '**/*'&#10;  base-directory: output&#10;&#10;cache:&#10;  paths:&#10;    - '/root/.gradle/**/*'&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
