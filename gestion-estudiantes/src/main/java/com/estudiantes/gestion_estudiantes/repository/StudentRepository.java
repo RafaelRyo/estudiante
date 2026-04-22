@@ -1,7 +1,5 @@
 package com.estudiantes.gestion_estudiantes.repository;
 
-import com.estudiantes.gestion_estudiantes.models.Student;
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public interface StudentRepository extends JpaRepository<Student, Integer> {
+// Repositorio temporal sin implementacion mientras el micro se ejecuta sin base de datos.
+public interface StudentRepository {
 }
