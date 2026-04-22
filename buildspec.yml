@@ -6,21 +6,21 @@ phases:
       java: corretto17
     commands:
       - echo "Preparing Gradle wrapper..."
-      - cd gestion-estudiantes
-      - chmod +x gradlew
+      - chmod +x gestion-estudiantes/gradlew
 
   build:
     commands:
       - echo "Building executable JAR..."
-      - cd gestion-estudiantes
-      - ./gradlew clean bootJar --no-daemon
-      - echo "Listing generated artifacts..."
-      - ls -la build/libs/
-      - echo "Preparing artifacts for Elastic Beanstalk..."
-      - mkdir -p output
-      - cp build/libs/*.jar output/
-      - cp Procfile output/
-      - cp -r .ebextensions output/
+      - |
+        cd gestion-estudiantes
+        ./gradlew clean bootJar --no-daemon
+        echo "Listing generated artifacts..."
+        ls -la build/libs/
+        echo "Preparing artifacts for Elastic Beanstalk..."
+        mkdir -p output
+        cp build/libs/*.jar output/
+        cp Procfile output/
+        cp -r .ebextensions output/
 
 artifacts:
   files:
