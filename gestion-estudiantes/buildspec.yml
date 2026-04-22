@@ -14,7 +14,16 @@ phases:
       - ./gradlew clean bootJar --no-daemon
       - echo "Listing generated artifacts..."
       - ls -la build/libs/
+      - echo "Preparing artifacts for Elastic Beanstalk..."
+      - mkdir -p output
+      - cp build/libs/*.jar output/
+      - cp Procfile output/
+      - cp -r .ebextensions output/
 
+artifacts:
+  files:
+    - '**/*'
+  base-directory: output
 
 cache:
   paths:
