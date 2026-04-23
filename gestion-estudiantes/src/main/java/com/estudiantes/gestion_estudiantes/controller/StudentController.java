@@ -24,6 +24,8 @@ public class StudentController {
     @PostMapping("/registrar")
     public ResponseEntity<?> guardarPruebaEstudiante(@RequestBody Student pruebaEstudiante) {
         log.info("Entro al endpoint");
+        log.info("Objeto recibido: {}", pruebaEstudiante);
+        log.info("Grade recibido: '{}'", pruebaEstudiante != null ? pruebaEstudiante.getGrade() : "null");
         String error = validarCamposObligatorios(pruebaEstudiante);
         if (error != null) {
             log.warn("Error en la validacion de campos: {}", error);
