@@ -1,0 +1,24 @@
+package com.estudiantes.gestion_estudiantes.application.dto;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.Data;
+
+import java.time.OffsetDateTime;
+
+@Data
+public class StudentRequestDTO {
+
+    @NotBlank(message = "El campo 'name' es obligatorio")
+    private String name;
+
+    @NotBlank(message = "El campo 'lastNames' es obligatorio")
+    private String lastNames;
+
+    @NotNull(message = "El campo 'dateBirth' es obligatorio")
+    private OffsetDateTime dateBirth;
+
+    @NotBlank(message = "El campo 'grade' es obligatorio")
+    private String grade;
+}
+
