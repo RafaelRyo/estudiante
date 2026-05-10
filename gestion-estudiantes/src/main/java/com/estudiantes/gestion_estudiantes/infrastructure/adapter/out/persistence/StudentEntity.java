@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
-import java.time.OffsetDateTime;
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Data
@@ -32,7 +32,7 @@ public class StudentEntity {
     private String lastNames;
 
     @Column(name = "date_birth", nullable = false)
-    private OffsetDateTime dateBirth;
+    private LocalDate dateBirth;
 
     @Column(nullable = false)
     private String grade;

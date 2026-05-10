@@ -4,7 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
-import java.time.OffsetDateTime;
+import java.time.LocalDate;
 
 @Data
 public class StudentRequestDTO {
@@ -16,7 +16,7 @@ public class StudentRequestDTO {
     private String lastNames;
 
     @NotNull(message = "El campo 'dateBirth' es obligatorio")
-    private OffsetDateTime dateBirth;
+    private LocalDate dateBirth;
 
     @NotBlank(message = "El campo 'grade' es obligatorio")
     private String grade;

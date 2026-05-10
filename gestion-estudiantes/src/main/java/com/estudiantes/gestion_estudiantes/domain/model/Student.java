@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.OffsetDateTime;
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Data
@@ -16,7 +16,7 @@ public class Student {
     private UUID eid;
     private String name;
     private String lastNames;
-    private OffsetDateTime dateBirth;
+    private LocalDate dateBirth;
     private String grade;
 }
 
