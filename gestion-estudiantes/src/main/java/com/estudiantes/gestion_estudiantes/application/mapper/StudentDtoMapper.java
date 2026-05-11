@@ -4,6 +4,8 @@ import com.estudiantes.gestion_estudiantes.application.dto.StudentRequestDTO;
 import com.estudiantes.gestion_estudiantes.application.dto.StudentResponseDTO;
 import com.estudiantes.gestion_estudiantes.domain.model.Student;
 import org.springframework.stereotype.Component;
+
+@Component
 public class StudentDtoMapper {
 
     public Student toDomain(StudentRequestDTO dto) {
