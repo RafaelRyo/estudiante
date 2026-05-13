@@ -37,6 +37,9 @@ public class StudentController {
     public ResponseEntity<StudentResponseDTO> registerStudent(@Valid @RequestBody StudentRequestDTO request) {
         log.info("POST /api/students/register - {}", request.getName());
         StudentResponseDTO response = studentInputPort.createStudent(request);
+
+        try { Thread.sleep(500); } catch (InterruptedException e) { Thread.currentThread().interrupt(); }
+
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
